@@ -25,12 +25,9 @@ export class TableComponent implements OnInit {
     { key: 'dateAdvertisementStart', type: 'Date', title: 'Date Start', hidden: true }
   ];
   constructor(private advService: AdvertisementService) {
-    advService.getAll().subscribe(r => {
-      this.advertisements = r;
-      this.advertisements = this.advertisements.map(m => {
-        return {...m, exchangeArea: m.exchangeArea.split('|').join(' >> ')};
-      })
-    });
+    advService.getAll().subscribe(r => this.advertisements = r
+      .map(m => ({ ...m, exchangeArea: m.exchangeArea.split('|').join(' >> ') }))
+      .sort((a, b) => { return new Date(b.dateUpdate).getTime() - new Date(a.dateUpdate).getTime() }));
     // this.advertisements = [
     //   {
     //     dateUpdate: new Date('2019-10-20T20:46:03.5439361Z'),
