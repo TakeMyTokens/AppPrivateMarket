@@ -39,20 +39,27 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col" *ngFor="let t of tableTitles" [hidden]="t.hidden">
+                                        <th scope="col" *ngFor="let t of tableTitles" [hidden]="t.hidden" class="text-center" >
                                             {{t.title}}
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let i of advertisements">
-                                        <td *ngFor="let t of tableTitles" [hidden]="t.hidden" class="text-center">
+                                        <td *ngFor="let t of tableTitles" [hidden]="t.hidden" [align]="t.align">
                                             <a *ngIf="['string','number'].includes(t.type)">{{i[t.key]}}</a>
                                             <a *ngIf="['Date'].includes(t.type)">{{i[t.key] | date : 'dd/MM/yyyy HH:mm:ss'}}</a>
                                             <a *ngIf="['OfferedItem[]'].includes(t.type)">
                                                 <a *ngFor="let a of i[t.key]; let ai = index">
                                                     <br *ngIf="ai > 0" />
-                                                    {{a.amount}} {{a.description}}
+                                                    {{a.amount.toLocaleString('it-IT', {minimumFractionDigits:'2'})}}
+                                                    <a *ngIf="a.description=='EUR'; else CHCSCondition">€</a>
+                                                    <ng-template #CHCSCondition>
+                                                        <a *ngIf="a.description=='CHCS'; else OtherCondition">§</a>
+                                                    </ng-template>
+                                                    <ng-template #OtherCondition>
+                                                        <a *ngIf="a.description !='CHCS'">{{a.description}}</a>
+                                                    </ng-template>
                                                 </a>
                                             </a>
                                             <a *ngIf="['boolean'].includes(t.type)">
