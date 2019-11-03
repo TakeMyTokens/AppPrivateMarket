@@ -11,14 +11,14 @@ export class TableComponent implements OnInit {
   advertisements: IAdvertisement[] = [];
   tableTitles: { title: string, key: string, type: string, hidden?: boolean, align?: string }[] = [
     { key: 'id', type: 'string', title: 'ID', hidden: true },
-    { key: 'dateUpdate', type: 'Date', title: 'Data Update', align:'left' },
-    { key: 'walletID', type: 'string', title: 'ID Wallet', align:'left' },
+    { key: 'dateUpdate', type: 'Date', title: 'Update date', align:'left' },
+    { key: 'walletID', type: 'string', title: 'Wallet ID', align:'left' },
     { key: 'offeredItems', type: 'OfferedItem[]', title: 'Offered Item', align:'right' },
     { key: 'requestedItems', type: 'OfferedItem[]', title: 'Requested Item', align:'right' },
-    { key: 'acceptOtherItems', type: 'boolean', title: 'Accepted Other Item', align:'center' },
+    { key: 'acceptOtherItems', type: 'boolean', title: 'Other Items Accepted', align:'center' },
     { key: 'negotiable', type: 'boolean', title: 'Negotiable', align:'center' },
     { key: 'onlyEntireAmount', type: 'boolean', title: 'Only Entire Amount', align:'center' },
-    { key: 'dateAdvertisementEnd', type: 'Date', title: 'Date End', align:'center' },
+    { key: 'dateAdvertisementEnd', type: 'Date', title: 'Deadline', align:'center' },
     { key: 'currentNumberQueue', type: 'number', title: 'Queue', align:'center' },
     { key: 'exchangeArea', type: 'string', title: 'Exchange Area', align:'left' },
     { key: 'state', type: 'number', title: 'Stato', hidden: true },
