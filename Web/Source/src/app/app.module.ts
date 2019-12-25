@@ -8,6 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './services/http-interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TableComponent } from './table/table.component';
+import { footerComponent } from './footer/footer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AppComponent,
     NavbarComponent,
     TableComponent,
+    footerComponent
   ],
   imports: [
     BrowserModule,

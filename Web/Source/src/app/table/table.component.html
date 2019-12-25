@@ -5,8 +5,7 @@
                 <div class="area-title">
                     <h2 class="plus-margin">Complete list of offers</h2>
                     <div>
-                        <h4>Private Market
-                            <small class="text-muted">By TakeMyTokens</small>
+                        <h4>Below is the complete list of all the offers available in the <small class="text-muted">market</small>
                         </h4>
                     </div>
                 </div>
@@ -22,7 +21,7 @@
                     <li class="nav-item" *ngIf="advertisements && advertisements.length > 0">
                         <a class="nav-link disabled" id="home-tab" data-toggle="tab" href="#home" role="tab"
                             aria-controls="home" aria-selected="true">All
-                            Transactions<br /><span>{{advertisements.length}}</span></a>
+                            Items<br /><span>{{advertisements.length}}</span></a>
                     </li>
                     <li *ngIf="false" class="nav-item">
                         <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
@@ -46,7 +45,7 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let i of advertisements">
-                                        <td *ngFor="let t of tableTitles" [hidden]="t.hidden" [align]="t.align">
+                                        <td *ngFor="let t of tableTitles" [hidden]="t.hidden" [align]="t.align" [class]="t.class" >
                                             <a *ngIf="['string','number'].includes(t.type)">{{i[t.key]}}</a>
                                             <a *ngIf="['Date'].includes(t.type)">{{i[t.key] | date : 'dd/MM/yyyy HH:mm:ss'}}</a>
                                             <a *ngIf="['OfferedItem[]'].includes(t.type)">
